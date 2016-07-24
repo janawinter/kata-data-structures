@@ -8,11 +8,6 @@ function where (arr, propertiesObj) {
     }
     return true
   })
-  if (arr.length>1) {
-    return arr
-  }
-  else{
-    return arr[0]
-  }
+  return arr
 }
 module.exports = where
