@@ -23,25 +23,26 @@ function getContacts (asArray) {
   if (asArray) {
     return Object.keys(contacts).map(function (key) {
       var id = { id: key }
+
       return Object.assign(id, contacts[key])
     })
   }
   return contacts
 }
-
-test('getValue gets a nested object by key', function (t) {
-  var contacts = getContacts()
-  var expected = { address: '742 Evergreen Terrace', name: 'Marge Simpson', age: 47 }
-  var actual = getValue(contacts, '123')
-  t.deepEqual(actual, expected)
-})
-
-test('map and getAddress return the address property from objects in an array', function (t) {
-  var contacts = getContacts(true)
-  var expected = [ '742 Evergreen Terrace', 'Bag End', 'Wayne Manor', 'Skull Island', 'Wayne Manor']
-  var actual = contacts.map(getAddress)
-  t.deepEqual(actual, expected)
-})
+//
+// test('getValue gets a nested object by key', function (t) {
+//   var contacts = getContacts()
+//   var expected = { address: '742 Evergreen Terrace', name: 'Marge Simpson', age: 47 }
+//   var actual = getValue(contacts, '123')
+//   t.deepEqual(actual, expected)
+// })
+//
+// test('map and getAddress return the address property from objects in an array', function (t) {
+//   var contacts = getContacts(true)
+//   var expected = [ '742 Evergreen Terrace', 'Bag End', 'Wayne Manor', 'Skull Island', 'Wayne Manor']
+//   var actual = contacts.map(getAddress)
+//   t.deepEqual(actual, expected)
+// })
 
 test('where finds an object by id in an array', function (t) {
   var contacts = getContacts(true)
